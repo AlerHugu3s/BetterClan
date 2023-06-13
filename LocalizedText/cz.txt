@@ -1,0 +1,3 @@
+king_usurp,$kingdom$的国君$oldKing$被$newKing$篡取了王位!;
+plot_description_usurp,来自$initiator_kingdom$的$initiator_actor$正在策划一场篡位;
+plot_usurp,正在计划篡位;

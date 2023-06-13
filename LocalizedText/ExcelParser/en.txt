@@ -1,0 +1,3 @@
+king_usurp,$oldKing$'s throne of the $kingdom$ is usurped by $newKing$ !;
+plot_description_usurp,$initiator_kingdom$'s $initiator_actor$ is planning to usurp;
+plot_usurp,Planning Usurp;

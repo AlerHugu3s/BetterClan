@@ -1,0 +1,13 @@
+/.idea
+/.idea/*
+/bin
+/bin/*
+/obj
+/obj/*
+/Properties
+/Properties/*
+/BetterClan.sln
+/BetterClan.sln.DotSettings.user
+/BetterClan.csproj
+/Code/.idea/
+/Code/.idea/*

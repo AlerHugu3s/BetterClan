@@ -1,0 +1,1 @@
+Put whole folder into GameRoots/Mods/

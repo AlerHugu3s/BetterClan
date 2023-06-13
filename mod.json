@@ -1,0 +1,8 @@
+{
+  "name": "Better Clan",
+  "author": "AlerHughes",
+  "version": "1.1.1",
+  "description": "本MOD对氏族的相关逻辑进行了优化",
+  "targetGameBuild": 482,
+  "iconPath": "icon.png"
+}
