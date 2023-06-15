@@ -34,7 +34,7 @@ namespace BetterClan
                 if (World.world.getWorldTimeElapsedSince(last_usurpTimer) <= interval_king_usurp)
                     return false;
 
-                if (pKingdom.hasEnemies() || pActor == pKingdom.king)
+                if (pActor == pKingdom.king)
                     return false;
                 
                 Clan pClan = pActor.getClan();
@@ -113,19 +113,18 @@ namespace BetterClan
                 BetterClanAllowUsurp && 
                 pPlot.initiator_actor.isAlive() && 
                 !pPlot.initiator_actor.kingdom.asset.mad && 
-                !pPlot.initiator_kingdom.hasEnemies() && 
+                //!pPlot.initiator_kingdom.hasEnemies() && 
                 pPlot.initiator_actor.getClan().units.Count > 5 &&
                 (Object)pPlot.initiator_kingdom.king != (Object)pPlot.initiator_actor &&
-                ((pPlot.initiator_city.leader == pPlot.initiator_actor && (pPlot.initiator_kingdom.king != null ||
-                                                                             pPlot.initiator_kingdom.king.isAlive() ||
-                                                                             pPlot.initiator_actor.getClan() ==
-                                                                             pPlot.initiator_kingdom.king.getClan() ||
-                                                                             pPlot.initiator_kingdom.data
-                                                                                 .timer_new_king > 0.0f))
-                || (pPlot.initiator_city.leader != pPlot.initiator_actor && (pPlot.initiator_city.leader != null ||
-                                                                             pPlot.initiator_city.leader.isAlive() ||
-                                                                             pPlot.initiator_actor.getClan() ==
-                                                                             pPlot.initiator_city.leader.getClan()))));
+                ((pPlot.initiator_city.leader == pPlot.initiator_actor && 
+                  pPlot.initiator_kingdom.king != null &&
+                  pPlot.initiator_kingdom.king.isAlive() &&
+                  pPlot.initiator_actor.getClan() == pPlot.initiator_kingdom.king.getClan() ) //&& 
+                  //(double)pPlot.initiator_kingdom.data.timer_new_king > 0.0) 
+                 || (pPlot.initiator_city.leader != pPlot.initiator_actor && 
+                     pPlot.initiator_city.leader != null &&
+                     pPlot.initiator_city.leader.isAlive() && 
+                     pPlot.initiator_actor.getClan() == pPlot.initiator_city.leader.getClan())));
             plotAsset.plot_power = (PlotActorDelegate) (pActor =>
             {
                 return 10000;

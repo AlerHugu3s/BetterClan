@@ -20,7 +20,7 @@ namespace BetterClan
                 {
                     if (pActor.isAlive() && pActor.getAge() > 18)
                     {
-                        if ( World.world.getWorldTimeElapsedSince((float)_timestamp_last_plot.GetValue()) < 10.0)
+                        if ( World.world.getWorldTimeElapsedSince((double)_timestamp_last_plot.GetValue()) < 10.0)
                             return;
                         List<Plot> plotsFor = World.world.plots.getPlotsFor(pActor);
                         
