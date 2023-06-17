@@ -1,3 +1,3 @@
-Put whole folder into GameRoots/Mods/
+unzip and Put BetterClan.mod into GameRoots/Mods/
 
-this mod requires Easy Localization to run,please make sure install it
+this mod requires EasyLocalization to run,please make sure install it

@@ -32,7 +32,7 @@ namespace BetterClan{
         [HarmonyPatch(typeof(CityBehCheckLeader),"tryGetClanLeader")]
         public static void getCityLeaderByAttributes(City pCity,ref Actor __result)
         {
-            Kingdom kingdom = Traverse.Create(pCity).Property("kingdom").GetValue() as Kingdom;
+            Kingdom kingdom = pCity.kingdom;
             Clan clan = (Clan) null;
             if (kingdom != null &&　kingdom.data.royal_clan_id != string.Empty)
                 clan = MapBox.instance.clans.get(kingdom.data.royal_clan_id);
@@ -42,7 +42,7 @@ namespace BetterClan{
             if (kingdom == null)
                 foreach (Actor unit in (ObjectContainer<Actor>) pCity.units)
                 {
-                    ActorData unitData = Traverse.Create(unit).Property("data").GetValue() as ActorData;
+                    ActorData unitData = unit.data;
                     if (unitData == null) continue;
                     if (unit.isAlive() && unitData.profession != UnitProfession.Leader && unitData.profession != UnitProfession.King && unit.getClan() != null)
                     {
@@ -55,7 +55,7 @@ namespace BetterClan{
                 {
                     foreach (Actor unit in (ObjectContainer<Actor>) city.units)
                     {
-                        ActorData unitData = Traverse.Create(unit).Property("data").GetValue() as ActorData;
+                        ActorData unitData = unit.data;
                         if (unit.isAlive() && unitData.profession != UnitProfession.Leader && unitData.profession != UnitProfession.King && unit.getClan() != null)
                         {
                             if (clan != null && unit.getClan() == clan)

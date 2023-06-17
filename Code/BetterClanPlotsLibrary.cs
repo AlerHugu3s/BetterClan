@@ -51,7 +51,7 @@ namespace BetterClan
 
                 float ageAdvantage = 1.0f;
                 float age = pActor.getAge();
-                BaseStats actorStats = Traverse.Create(pActor).Field("stats").GetValue() as BaseStats;
+                BaseStats actorStats = pActor.stats;
                 float maxAge = actorStats[S.max_age];
                 float middleAge = maxAge / 2.0f;
                 ageAdvantage = 1.5f * Math.Abs(middleAge - age / middleAge);

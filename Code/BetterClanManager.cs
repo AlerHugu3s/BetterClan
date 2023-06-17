@@ -12,7 +12,6 @@ namespace BetterClan
         {
             if (!World.world.worldLaws.world_law_diplomacy.boolVal)
                 return;
-            Traverse _timestamp_last_plot = Traverse.Create(__instance).Field("_timestamp_last_plot");
 
             for (int index = 0; index < __instance.list.Count; ++index)
             {
@@ -20,7 +19,7 @@ namespace BetterClan
                 {
                     if (pActor.isAlive() && pActor.getAge() > 18)
                     {
-                        if ( World.world.getWorldTimeElapsedSince((double)_timestamp_last_plot.GetValue()) < 10.0)
+                        if ( World.world.getWorldTimeElapsedSince(__instance._timestamp_last_plot) < 10.0)
                             return;
                         List<Plot> plotsFor = World.world.plots.getPlotsFor(pActor);
                         
@@ -33,7 +32,7 @@ namespace BetterClan
                                 flag = tryPlotUsurp(pActor, BetterClanPlotsLibrary.usurp);
                             if (!flag)
                                 continue;
-                            _timestamp_last_plot.SetValue(World.world.getCurWorldTime());
+                            __instance._timestamp_last_plot = World.world.getCurWorldTime();
                         }
                     }
                 }
@@ -51,7 +50,7 @@ namespace BetterClan
                 flag = tryPlotUsurp(pActor, BetterClanPlotsLibrary.usurp);
             if (!flag)
                 return;
-            Traverse.Create(__instance).Field("_timestamp_last_plot").SetValue(World.world.getCurWorldTime());
+            __instance._timestamp_last_plot = World.world.getCurWorldTime();
         }
 
         public static bool tryPlotUsurp(Actor pActor, PlotAsset pPlotAsset)
