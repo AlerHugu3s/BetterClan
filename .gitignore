@@ -6,8 +6,10 @@
 /obj/*
 /Properties
 /Properties/*
-/BetterClan.sln
-/BetterClan.sln.DotSettings.user
-/BetterClan.csproj
+*.sln
+*.sln.DotSettings.user
+*.csproj
 /Code/.idea/
 /Code/.idea/*
+*.zip
+*.mod
